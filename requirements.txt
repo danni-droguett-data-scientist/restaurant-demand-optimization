@@ -4,3 +4,5 @@ matplotlib
 scikit-learn
 statsmodels
 jupyter
+
+ipykernel
