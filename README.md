@@ -1,49 +1,51 @@
 # Restaurant Demand Optimization (Forecasting + KPIs)
 
-Proyecto de Data Science end-to-end para **predecir demanda** y **optimizar rentabilidad** en un restaurante, combinando:
-- análisis exploratorio (EDA),
-- KPIs operativos/financieros,
-- ingeniería de menú,
-- modelos predictivos (baseline + ML + series de tiempo),
-- evaluación y recomendaciones de negocio.
+End-to-end Data Science project to **forecast demand** and **optimize restaurant profitability**, combining:
+- Exploratory Data Analysis (EDA)
+- Operational & financial KPIs
+- Menu engineering
+- Predictive models (baselines + ML + time series)
+- Evaluation and business recommendations
 
-> Diseñado como proyecto de portafolio (GitHub/LinkedIn): código modular, reproducible y adaptable a distintos restaurantes y entornos.
+> Built as a portfolio project (GitHub/LinkedIn): modular, reproducible, and adaptable to different restaurant contexts.
+
+**Language / Idioma:** English | [Español](README.es.md)
 
 ---
 
 ## Business Goal
 
-Optimizar:
-- **Rentabilidad** (margen y utilidad estimada)
-- **Desperdicio** (mejor planificación de compras e inventario)
-- **Operación** (dotación por turno, planificación de producción)
-- **Demanda**: forecast **diario**, **semanal** y **30 días**
+Optimize:
+- **Profitability** (margin and estimated profit)
+- **Waste reduction** (better purchasing and inventory planning)
+- **Operations** (staffing by shift, production planning)
+- **Demand forecasting**: **daily**, **weekly**, and **30-day** horizons
 
 ---
 
 ## Config & Assumptions (adaptable)
 
-Estos parámetros se definen como configuración (para reutilizar el proyecto en distintos restaurantes):
+These parameters are configurable to reuse the project across different restaurants:
 
-- **Moneda base**: CLP (configurable)
-- **Impuesto**: IVA 19% (configurable)
-- **Propina**: 10% opcional (por defecto **no** incluida en revenue)
-- **Canales**: `dine_in`, `takeaway`, `delivery`
-- **Catálogo (SKUs)**: típico 40–80 (configurable)
-- **Horario típico**: 11:00–00:00, 6 días/semana (configurable)
+- **Base currency**: CLP (configurable)
+- **Tax**: VAT 19% (configurable)
+- **Tip**: optional 10% (excluded from revenue by default)
+- **Channels**: `dine_in`, `takeaway`, `delivery`
+- **Menu size (SKUs)**: typically 40–80 (configurable)
+- **Typical opening hours**: 11:00–00:00, 6 days/week (configurable)
 
 ---
 
-## Data (POS & Operaciones)
+## Data (POS & Operations)
 
-Estructura esperada (real o sintética):
-- Fecha/hora, ticket/boleta, productos, cantidades, precios
-- Costos por ingrediente / receta (para food cost)
-- Inventario y rotación
-- Personal por turno y costos (para productividad)
-- Costos fijos mensuales (para utilidad estimada)
+Expected data (real or synthetic):
+- Date/time, tickets/receipts, products, quantities, prices
+- Ingredient/recipe costs (for food cost)
+- Inventory and turnover
+- Staffing per shift and labor costs (for productivity)
+- Monthly fixed costs (for profit estimates)
 
-> Por práctica profesional, `data/raw/` y `data/processed/` no se versionan en Git.
+> Best practice: `data/raw/` and `data/processed/` are not committed to Git.
 
 ---
 
@@ -52,8 +54,8 @@ Estructura esperada (real o sintética):
 ```text
 restaurant-demand-optimization/
 ├── data/
-│   ├── raw/              # ignorado por git
-│   └── processed/        # ignorado por git
+│   ├── raw/              # gitignored
+│   └── processed/        # gitignored
 ├── notebooks/
 ├── src/
 │   ├── forecasting/
@@ -61,6 +63,7 @@ restaurant-demand-optimization/
 │   └── main.py
 ├── reports/
 ├── README.md
+├── README.es.md
 ├── requirements.txt
 ├── .gitignore
 └── .gitattributes
