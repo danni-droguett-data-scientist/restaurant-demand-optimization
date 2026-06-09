@@ -67,6 +67,7 @@ restaurant-demand-optimization/
 ├── requirements.txt
 ├── .gitignore
 └── .gitattributes
+```
 
 <!--
   Sección "Resultados y Conclusiones" para pegar en el README del repo
