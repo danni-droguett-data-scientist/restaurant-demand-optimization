@@ -106,8 +106,17 @@ Cruzando **popularidad (unidades vendidas) vs. margen por unidad**, cada product
 ### KPIs calculados
 Ventas netas/brutas, ticket promedio, *food cost %* y margen por producto, además de KPIs operativos por turno.
 
-### Próximos pasos
-Forecasting de demanda con *backtesting* (horizontes diario, semanal y a 30 días) e incorporación de modelos de ML para apoyar compras y planificación de turnos.
+### Forecasting de demanda
+Serie de demanda diaria con *backtesting* sobre los últimos 30 días (**sin data leakage**). Se comparan baselines contra modelos de series de tiempo (ver `notebooks/03_forecasting.ipynb`):
+
+| Modelo | MAE | RMSE | MAPE |
+|---|---|---|---|
+| **SARIMAX(1,1,1)(1,1,1)₇** 🏆 | **15.3** | **19.2** | **13.3%** |
+| Holt-Winters (ETS aditivo) | 15.7 | 19.4 | 13.3% |
+| Naive estacional (semanal) | 19.5 | 24.4 | 19.4% |
+| Naive | 34.5 | 51.4 | 17.7% |
+
+El modelo estacional **SARIMAX** gana y reduce a menos de la mitad el error (RMSE) del *naive*. Se genera un pronóstico a **30 días** para apoyar compras y planificación de turnos.
 
 ---
 
@@ -133,5 +142,14 @@ Crossing **popularity (units) vs. margin per unit**, each item falls into Stars,
 ### KPIs
 Net/gross revenue, average ticket, food cost %, per-product margin, and operational KPIs per shift.
 
-### Next steps
-Backtested demand forecasting (daily, weekly, 30-day) and ML models to support purchasing and staffing.
+### Demand forecasting
+Daily demand series with **backtesting** on the last 30 days (**no data leakage**). Baselines vs. time-series models (see `notebooks/03_forecasting.ipynb`):
+
+| Model | MAE | RMSE | MAPE |
+|---|---|---|---|
+| **SARIMAX(1,1,1)(1,1,1)₇** 🏆 | **15.3** | **19.2** | **13.3%** |
+| Holt-Winters (additive ETS) | 15.7 | 19.4 | 13.3% |
+| Seasonal naive (weekly) | 19.5 | 24.4 | 19.4% |
+| Naive | 34.5 | 51.4 | 17.7% |
+
+The seasonal **SARIMAX** model wins, more than halving the naive error (RMSE). A **30-day** forecast supports purchasing and staffing.
